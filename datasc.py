@@ -131,10 +131,16 @@ if uploaded_file is not None:
     with col2:
         y_axis = st.selectbox('Y-axis:', options=columns, key='y_axis')
 
-   # --- NEW: Aggregation option ---
+    # Check if x_axis and y_axis are the same
+    if x_axis == y_axis:
+        agg_options = ["Raw"]   # only allow Raw
+        st.warning("⚠️ Sum and Average are disabled because X-axis and Y-axis are the same column.")
+    else:
+        agg_options = ["Raw", "Sum", "Average"]
+
     agg_option = st.radio(
         "Select how to aggregate data:",
-        options=["Raw", "Sum", "Average"],
+        options=agg_options,
         horizontal=True
     )
 
@@ -213,5 +219,4 @@ if uploaded_file is None:
     <div style='text-align: center; color: #7f8c8d; margin-top: 3rem;'>
         <p>📊 <strong>Data Analysis Tool</strong> | Upload a file to begin analysis</p>
     </div>
-
     """, unsafe_allow_html=True)
