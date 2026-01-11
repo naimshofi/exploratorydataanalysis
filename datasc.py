@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 import io 
 
 # Set page config first
@@ -214,4 +213,5 @@ if uploaded_file is None:
     <div style='text-align: center; color: #7f8c8d; margin-top: 3rem;'>
         <p>📊 <strong>Data Analysis Tool</strong> | Upload a file to begin analysis</p>
     </div>
+
     """, unsafe_allow_html=True)
